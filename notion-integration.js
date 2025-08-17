@@ -17,7 +17,7 @@
 // CONFIGURAÇÕES - SUBSTITUA PELOS SEUS VALORES
 const NOTION_TOKEN = 'secret_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 const DATABASE_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
-const API_URL = 'https://your-app-name.railway.app';
+const API_URL = 'https://samuel-tiktok-api.up.railway.app';
 
 /**
  * Função principal para atualizar seguidores no Notion

@@ -8,12 +8,12 @@
 4. **Selecione este repositório**
 5. **Railway detectará automaticamente Node.js e fará o deploy**
 
-Sua API estará disponível em: `https://your-app-name.railway.app`
+Sua API estará disponível em: `https://samuel-tiktok-api.up.railway.app`
 
 ## Testando a API
 
 ```bash
-curl https://your-app-name.railway.app/api/tiktok/followers/samuelsmeurer
+curl https://samuel-tiktok-api.up.railway.app/api/tiktok/followers/samuelsmeurer
 ```
 
 ## Endpoint Principal

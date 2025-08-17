@@ -5,7 +5,7 @@
  * 1. Abra Google Sheets
  * 2. Vá em Extensões > Apps Script
  * 3. Cole este código
- * 4. Substitua 'YOUR_API_URL' pela URL da sua API no Railway
+ * 4. A URL da API já está configurada: https://samuel-tiktok-api.up.railway.app
  * 5. Execute a função updateTikTokFollowers()
  * 
  * FORMATO DA PLANILHA:
@@ -13,8 +13,8 @@
  * Coluna B: Número de seguidores (será preenchido automaticamente)
  */
 
-// SUBSTITUA PELA URL DA SUA API NO RAILWAY
-const API_URL = 'https://your-app-name.railway.app';
+// URL DA API NO RAILWAY
+const API_URL = 'https://samuel-tiktok-api.up.railway.app';
 
 /**
  * Função principal para atualizar seguidores do TikTok
