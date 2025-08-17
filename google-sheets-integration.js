@@ -179,7 +179,64 @@ function testConnection() {
 }
 
 /**
- * EXEMPLO DE USO:
+ * FUNÇÃO PERSONALIZADA PARA USAR DIRETAMENTE NAS CÉLULAS
+ * Use =TIKTOK_FOLLOWERS("samuelsmeurer") em qualquer célula!
+ */
+function TIKTOK_FOLLOWERS(username) {
+  if (!username) {
+    return "❌ Username obrigatório";
+  }
+  
+  try {
+    // Remove @ se presente
+    const cleanUsername = username.toString().replace('@', '');
+    
+    // Faz a requisição para a API
+    const response = UrlFetchApp.fetch(`${API_URL}/api/tiktok/followers/${cleanUsername}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      },
+      muteHttpExceptions: true
+    });
+    
+    const data = JSON.parse(response.getContentText());
+    
+    if (response.getResponseCode() === 200 && data.followers) {
+      return data.followers;
+    } else {
+      return `❌ ${data.error || 'Erro na API'}`;
+    }
+    
+  } catch (error) {
+    return `❌ Erro: ${error.toString()}`;
+  }
+}
+
+/**
+ * EXEMPLO DE USO DA FUNÇÃO PERSONALIZADA:
+ * 
+ * 1. Cole este código no Google Apps Script
+ * 2. Use diretamente nas células do Google Sheets:
+ *    =TIKTOK_FOLLOWERS("samuelsmeurer")
+ *    =TIKTOK_FOLLOWERS("@samuelsmeurer") 
+ *    =TIKTOK_FOLLOWERS(A1) // se A1 contém o username
+ * 
+ * 3. A planilha atualizará automaticamente quando recarregada!
+ * 
+ * EXEMPLOS DE FÓRMULAS:
+ * =TIKTOK_FOLLOWERS("samuelsmeurer")
+ * =TIKTOK_FOLLOWERS(A2)
+ * ="Seguidores: " & TIKTOK_FOLLOWERS("samuelsmeurer")
+ * 
+ * DICAS:
+ * - A função remove @ automaticamente
+ * - Para forçar atualização: Ctrl+Shift+F9
+ * - A planilha atualiza sozinha quando recarregada
+ */
+
+/**
+ * FUNÇÕES ANTIGAS PARA ATUALIZAÇÃO EM LOTE (OPCIONAL)
  * 
  * 1. Configure os cabeçalhos: setupHeaders()
  * 2. Adicione usernames na coluna A (ex: samuelsmeurer)
